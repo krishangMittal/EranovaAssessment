@@ -22,11 +22,6 @@ class InvoiceExtractor:
         self.last_prompt_tokens = 0
         self.last_completion_tokens = 0
 
-    def _encode_image_to_base64(self, image_path: str) -> str:
-        """Encode an image file to base64 string."""
-        with open(image_path, "rb") as image_file:
-            return base64.b64encode(image_file.read()).decode('utf-8')
-
     def _pdf_to_base64_images(self, pdf_path: str) -> List[str]:
         """Convert PDF pages to base64 encoded images."""
         try:
@@ -177,11 +172,3 @@ Important:
                 'line_items': [],
                 'notes': f'Extraction error: {str(e)}'
             }
-
-    def get_token_usage(self) -> Dict[str, int]:
-        """
-        Returns token usage from the last API call.
-        Note: This is a simplified version. In production, you'd track this per request.
-        """
-        # This would need to be implemented by storing usage data from each API call
-        return {'prompt_tokens': 0, 'completion_tokens': 0}

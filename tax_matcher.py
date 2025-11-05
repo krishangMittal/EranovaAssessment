@@ -115,7 +115,3 @@ Return ONLY the exact category name from the list above. Do not include explanat
         except Exception as e:
             print(f"Error matching category for '{product_description}': {e}")
             return "Packaged Snacks", self.tax_rates.get("Packaged Snacks", 4.0)
-
-    def get_all_categories(self) -> Dict[str, float]:
-        """Return all available tax categories and their rates."""
-        return self.tax_rates.copy()
